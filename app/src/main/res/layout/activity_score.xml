@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Question2"
+    android:theme="@style/Theme.My_Culture_Quiz"
+    android:background="@drawable/background_1">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/imageView"
+        android:layout_width="208dp"
+        android:layout_height="280dp"
+        android:layout_gravity="center"
+        android:src="@drawable/score">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Congratulations !\n Your score is :"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:id="@+id/score1"
+        android:textColor="@color/colorPrimary"
+        />
+
+        <TextView
+            android:id="@+id/score2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:text=" %" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/score2"
+        android:layout_marginTop="20dp"
+        android:max="100"
+        android:progress="0">
+
+    </ProgressBar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginTop="50sp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonTry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorAccent"
+            android:text="Try Again" />
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/pink"
+            android:text="Log out" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

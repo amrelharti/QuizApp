@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:theme="@style/Theme.My_Culture_Quiz"
+    android:background="@drawable/f1wallpaper2">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/imageView"
+        android:layout_width="208dp"
+        android:layout_height="280dp"
+        android:layout_gravity="center"
+        android:src="@drawable/danny">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="50dp">
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:backgroundTintMode="src_in"
+        android:drawableStart="@android:drawable/sym_action_email"
+        android:hint="email"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableStart="@android:drawable/ic_lock_idle_lock"
+        android:hint="password"
+        android:id="@+id/password"
+        android:password="true"
+        android:textColorHint="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/sign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:textSize="20sp"
+        android:background="@color/blue"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Sign in" />
+
+    <TextView
+        android:id="@+id/notregisterd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:textSize="15sp"
+
+
+        android:text="Not Registered Click Here" />
+
+
+
+</LinearLayout>
+
+</LinearLayout>
