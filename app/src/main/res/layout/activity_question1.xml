@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:text="Who is known as the ' Honey Badger ' among F1 drivers ?"
         android:textSize="20sp"
+        android:id="@+id/question_text"
         android:textColor="@color/colorPrimary"
         android:layout_marginStart="25sp"
         android:layout_marginEnd="25sp"/>
@@ -50,26 +51,26 @@
 
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/radioA1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Lewis Hamilton" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioB1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Daniel Ricciardo" />
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/radioC1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Checo Perez" />
         </RadioGroup>
 
         <Button
-            android:id="@+id/buttonNext"
+            android:id="@+id/buttonNext1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40sp"

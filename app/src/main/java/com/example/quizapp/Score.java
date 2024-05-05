@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -14,8 +13,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Score extends AppCompatActivity {
     TextView score2;
-    double score;
-    Button buttonLogout,buttonTry;
+    int score;
+    Button buttonLogout, buttonTry;
     FirebaseAuth mAuth;
     FirebaseUser user;
 
@@ -24,40 +23,33 @@ public class Score extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
-        mAuth=FirebaseAuth.getInstance();
-        user=mAuth.getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
 
         score2 = findViewById(R.id.score2);
         buttonLogout = findViewById(R.id.buttonLogout);
-
-        Intent i1 = getIntent();
-
-        score = i1.getIntExtra("score", 0);
-
-        int percentageScore = (int) ((score / 5) * 100);
-
-        score2.setText(String.valueOf(percentageScore));
-
         buttonTry = findViewById(R.id.buttonTry);
-        buttonTry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i2 = new Intent(getApplicationContext(), Question1.class);
-                startActivity(i2);
-            }
+
+        // Receive the score from the Intent
+        Intent intent = getIntent();
+        score = intent.getIntExtra("score", 0);
+
+        // Correctly calculate and display the score percentage
+        int percentageScore = (int) ((score / 5.0) * 100);
+        score2.setText(percentageScore + "%");
+
+        // Set the listeners
+        buttonTry.setOnClickListener(v -> {
+            Intent retryIntent = new Intent(getApplicationContext(), Question1.class);
+            startActivity(retryIntent);
+            finish();
         });
 
-        buttonLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        buttonLogout.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent logoutIntent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(logoutIntent);
+            finish();
         });
-
     }
-
-
 }
