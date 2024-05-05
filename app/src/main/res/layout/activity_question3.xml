@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:text="What does ' DRS ' in Formula 1 stand for ?"
             android:textSize="20sp"
+            android:id="@+id/question_text3"
             android:textColor="@color/colorPrimary"
             android:layout_marginStart="25sp"
             android:layout_marginEnd="25sp"/>
@@ -48,26 +49,26 @@
             android:id="@+id/rg">
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/radioA3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Decision Review System" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioB3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Distributed Resource Scheduler" />
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/radioC3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Drag Reduction System" />
         </RadioGroup>
 
         <Button
-            android:id="@+id/buttonNext"
+            android:id="@+id/buttonNext3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40sp"
