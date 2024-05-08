@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +29,7 @@ public class Register extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent i2=new Intent(getApplicationContext(),Question1.class);
+            Intent i2=new Intent(getApplicationContext(),MainActivity.class);
             startActivity(i2);
             finish();
         }
@@ -53,27 +54,31 @@ public class Register extends AppCompatActivity {
                 String strPassword = password.getText().toString();
                 String strCPassword = cpassword.getText().toString();
 
-                if(TextUtils.isEmpty(strEmail)){
-                    Toast.makeText(Register.this,"Enter Email",Toast.LENGTH_SHORT).show();
+                if(TextUtils.isEmpty(strEmail) || TextUtils.isEmpty(strPassword) || TextUtils.isEmpty(strCPassword)){
+                    Toast.makeText(Register.this, "Email and Password fields cannot be empty", Toast.LENGTH_SHORT).show();
+                    Log.d("RegisterActivity", "Empty fields");
                     return;
                 }
-                if(TextUtils.isEmpty(strPassword)){
-                    Toast.makeText(Register.this,"Enter Password",Toast.LENGTH_SHORT).show();
+
+                if (!strPassword.equals(strCPassword)) {
+                    Toast.makeText(Register.this, "Passwords don't match", Toast.LENGTH_SHORT).show();
+                    Log.d("RegisterActivity", "Passwords do not match");
                     return;
                 }
+
                 mAuth.createUserWithEmailAndPassword(strEmail, strPassword)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()&& strPassword.equals(strCPassword)){
-                                    Toast.makeText(Register.this, "Account created.",
-                                            Toast.LENGTH_SHORT).show();
+                                if (task.isSuccessful()) {
+                                    Log.d("RegisterActivity", "Firebase registration successful");
+                                    Toast.makeText(Register.this, "Account created.", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Register.this, MainActivity.class);
                                     startActivity(intent);
-
+                                    finish();
                                 } else {
-                                    Toast.makeText(Register.this, "Authentication failed. passwords doesn't match",
-                                            Toast.LENGTH_SHORT).show();
+                                    Log.d("RegisterActivity", "Firebase registration failed", task.getException());
+                                    Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

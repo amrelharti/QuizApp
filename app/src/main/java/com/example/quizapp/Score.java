@@ -30,15 +30,13 @@ public class Score extends AppCompatActivity {
         buttonLogout = findViewById(R.id.buttonLogout);
         buttonTry = findViewById(R.id.buttonTry);
 
-        // Receive the score from the Intent
         Intent intent = getIntent();
         score = intent.getIntExtra("score", 0);
 
-        // Correctly calculate and display the score percentage
         int percentageScore = (int) ((score / 5.0) * 100);
         score2.setText(percentageScore + "%");
 
-        // Set the listeners
+
         buttonTry.setOnClickListener(v -> {
             Intent retryIntent = new Intent(getApplicationContext(), Question1.class);
             startActivity(retryIntent);

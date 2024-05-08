@@ -9,7 +9,18 @@
     android:theme="@style/Theme.My_Culture_Quiz"
     android:background="@drawable/background_1">
 
-<TextView
+    <TextView
+        android:id="@+id/timer_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="7dp"/>
+
+
+    <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="Question 1 "
@@ -81,6 +92,8 @@
             android:background="@color/blue"
             android:textColor="@color/colorPrimaryDark"
             android:text="Next" />
+
+
 
 
     </LinearLayout>
